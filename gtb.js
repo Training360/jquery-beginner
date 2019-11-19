@@ -8,7 +8,11 @@ async function runner() {
     command += ` && git checkout -b ${process.argv[2]}`;
     command += ` && git push -u origin ${process.argv[2]}`;
     command += ` && git checkout master`;
-    const { stdout, stderr } = await exec(command);
+    try {
+        const { stdout, stderr } = await exec(command);
+    } catch (e) {
+        console.error('Command error: ', e);
+    }
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
 }
