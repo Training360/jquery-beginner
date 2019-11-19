@@ -10,10 +10,10 @@ async function runner() {
     command += ` && git checkout master`;
     try {
         const { stdout, stderr } = await exec(command);
+        console.log('stdout:', stdout);
+        console.log('stderr:', stderr);
     } catch (e) {
         console.error('Command error: ', e);
     }
-    console.log('stdout:', stdout);
-    console.log('stderr:', stderr);
 }
 runner();
