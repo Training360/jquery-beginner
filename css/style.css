@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(51, 51, 51);
+}
+
+img {
+    display: block;
+    width: 243;
+    height: 66;
+    margin: 150px auto;
+}
