@@ -17,6 +17,13 @@ $(() => {
                 img.hide(1000)
                     .show(1000, () => isPlaying = false);
             }
+        } else if (e.keyCode === 83) {
+            // Slide. (s)
+            if (!isPlaying) {
+                isPlaying = true;
+                img.slideUp(1000)
+                    .slideDown(1000, () => isPlaying = false);
+            }
         }
     });
 });
