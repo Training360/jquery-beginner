@@ -23,16 +23,19 @@ $(() => {
     $(window).on('keyup', (e) => {
         // Pause. (p)
         if (e.keyCode === 80) {
+            if ($('#g').attr('data-paused') === '1') {
+                $('#g').attr('data-paused', '0');
+            } else {
+                $('#g').attr('data-paused', '1');
+            }
 
         } else if (e.keyCode === 27) {
             // Escape. (esc)
-
-        } else if (e.keyCode === 83) {
-            // Slide. (s)
-
-        } else if (e.keyCode === 66) {
-            // (b)
-
+            startScreen('flip');
+            if ($('#g').attr('data-paused') === '1') {
+                $('#g').attr('data-paused', '0');
+            }
+            $(window).off();
         }
     });
 });
