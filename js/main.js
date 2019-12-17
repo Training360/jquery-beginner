@@ -28,6 +28,7 @@ $(() => {
         if (e.keyCode === 80) {
             if (Game.attr('data-paused') === '1') {
                 Game.attr('data-paused', '0');
+                $('.pause').remove();
             } else {
                 Game.attr('data-paused', '1');
                 Game.after('<div class="pause"></div>');
@@ -38,6 +39,7 @@ $(() => {
             startScreen('flip');
             if (Game.attr('data-paused') === '1') {
                 Game.attr('data-paused', '0');
+                $('.pause').remove();
             }
             $(window).off();
         }
