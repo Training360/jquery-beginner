@@ -5,8 +5,11 @@ $(() => {
     const increase = el => set(el, parseInt(get(el), 10), +1);
     const decrease = el => set(el, parseInt(get(el), 10), -1);
 
+    // Global variables.
+    const Game = $('#g');
+
     const startScreen = (text) => {
-        $('#g')
+        Game
             .removeAttr('class')
             .empty();
         $('.logo').fadeIn(250);
@@ -23,17 +26,18 @@ $(() => {
     $(window).on('keyup', (e) => {
         // Pause. (p)
         if (e.keyCode === 80) {
-            if ($('#g').attr('data-paused') === '1') {
-                $('#g').attr('data-paused', '0');
+            if (Game.attr('data-paused') === '1') {
+                Game.attr('data-paused', '0');
             } else {
-                $('#g').attr('data-paused', '1');
+                Game.attr('data-paused', '1');
+                Game.after('<div class="pause"></div>');
             }
 
         } else if (e.keyCode === 27) {
             // Escape. (esc)
             startScreen('flip');
-            if ($('#g').attr('data-paused') === '1') {
-                $('#g').attr('data-paused', '0');
+            if (Game.attr('data-paused') === '1') {
+                Game.attr('data-paused', '0');
             }
             $(window).off();
         }
