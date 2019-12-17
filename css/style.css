@@ -4,6 +4,7 @@ body {
 
 img {
     display: block;
+    position: relative;
     width: 243;
     height: 66;
     margin: 0;

@@ -2,6 +2,21 @@ $(() => {
     const img = $('img');
     let isPlaying = false;
 
+    const animateLoop = (el, pos, duration) => {
+        if (duration < 1) {
+            return;
+        }
+
+        const topPosition = pos.bounce > 0 ? pos.top : (pos.top + pos.bounce);
+        el.animate({ top: topPosition }, {
+            duration,
+            complete: () => {
+                pos.bounce = pos.bounce * -0.92;
+                animateLoop(el, pos, duration * 0.92);
+            }
+        });
+    };
+
     $(window).on('keyup', (e) => {
         // Pause. (p)
         if (e.keyCode === 80) {
@@ -24,6 +39,8 @@ $(() => {
                 img.slideUp(1000)
                     .slideDown(1000, () => isPlaying = false);
             }
+        } else if (e.keyCode === 66) {
+            animateLoop(img, { top: 350, bounce: 100 }, 500);
         }
     });
 });
