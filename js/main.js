@@ -20,11 +20,15 @@ $(() => {
         $('.c4').text(text.substring(3, 4));
     }
 
+    // Init cards and set events.
     const initCards = () => {
         $('.logo .card:not(".twist")').on('click', (e) => {
             e.preventDefault();
             $(e.currentTarget)
-                .toggleClass('active');
+                .toggleClass('active')
+                .siblings('.card')
+                .not('.twist')
+                .removeClass('active');
         });
     };
 
