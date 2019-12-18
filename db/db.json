@@ -1,15 +1,23 @@
 {
-    "settings": {
-        "difficulties": {
-            "casual": {
-                "time": 32
-            },
-            "medium": {
-                "time": 90
-            },
-            "hard": {
-                "time": 192
-            }
-        }
+  "settings": {
+    "difficulties": {
+      "casual": {
+        "time": 32
+      },
+      "medium": {
+        "time": 90
+      },
+      "hard": {
+        "time": 192
+      }
     }
+  },
+  "users": [
+    {
+      "name": "John Wick",
+      "age": "40",
+      "hardness": "ultra",
+      "id": 1
+    }
+  ]
 }
