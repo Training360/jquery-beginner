@@ -20,8 +20,13 @@ $(() => {
         $('.c4').text(text.substring(3, 4));
     }
 
-    startScreen('fail');
-
+    const initCards = () => {
+        $('.logo .card:not(".twist")').on('click', (e) => {
+            e.preventDefault();
+            $(e.currentTarget)
+                .toggleClass('active');
+        });
+    };
 
     $(window).on('keyup', (e) => {
         // Pause. (p)
@@ -44,4 +49,10 @@ $(() => {
             $(window).off();
         }
     });
+
+    // Init game.
+    (() => {
+        startScreen('flip');
+        initCards();
+    })();
 });
