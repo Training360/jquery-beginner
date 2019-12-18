@@ -1,5 +1,15 @@
 {
     "settings": {
-        "flip": 3
+        "difficulties": {
+            "casual": {
+                "time": 32
+            },
+            "medium": {
+                "time": 90
+            },
+            "hard": {
+                "time": 192
+            }
+        }
     }
 }

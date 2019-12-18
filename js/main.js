@@ -7,6 +7,7 @@ $(() => {
 
     // Global variables.
     const Game = $('#g');
+    let settings = {};
 
     const startScreen = (text) => {
         Game
@@ -69,6 +70,11 @@ $(() => {
     // Init game.
     (() => {
         startScreen('flip');
-        initCards();
+
+        $.getJSON('http://localhost:3000/settings', (jsonSettings) => {
+            settings = jsonSettings;
+            initCards();
+        });
+
     })();
 });
