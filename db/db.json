@@ -14,9 +14,9 @@
   },
   "users": [
     {
+      "hardness": "medium",
       "name": "John Wick",
       "age": "40",
-      "hardness": "ultra",
       "id": 1
     }
   ]
