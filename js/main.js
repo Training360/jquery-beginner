@@ -33,9 +33,11 @@ $(() => {
         if (e.keyCode === 80) {
             if (Game.attr('data-paused') === '1') {
                 Game.attr('data-paused', '0');
+                $('.timer').css('animation-play-state', 'running');
                 $('.pause').remove();
             } else {
                 Game.attr('data-paused', '1');
+                $('.timer').css('animation-play-state', 'paused');
                 Game.after('<div class="pause"></div>');
             }
 
@@ -49,6 +51,16 @@ $(() => {
             $(window).off();
         }
     });
+
+    // Init timer.
+    const initTimer = (timer) => {
+        $('<i class="timer"></i>')
+            .prependTo(Game)
+            .css({ animation: `timer ${timer}ms liner` })
+            .one('webkitAnimationEnd oanimationend msAnimationEnd animationend', e => {
+                startScreen('fail');
+            });
+    };
 
     // Init game.
     (() => {
